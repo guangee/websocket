@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+ws:
+  port: 8888
+  title: arduino服务器
+  host: 0.0.0.0
+  boss-count: 1
+  work-count: 100
+  allow-custom-requests: true
+  upgrade-timeout: 10000
+  ping-timeout: 60000
+  ping-interval: 25000

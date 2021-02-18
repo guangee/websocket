@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>NETTY SOCKET.IO DEMO</title>
+    <base>
+    <script src="js/jquery.js"></script>
+    <script src="js/socket/socket.io.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #console {
+            height: 450px;
+            overflow: auto;
+        }
+
+        .username-msg {
+            color: orange;
+        }
+
+        .connect-msg {
+            color: green;
+        }
+
+        .disconnect-msg {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+<h1>湿度：<span id="data"></span></h1>
+<h1>更新时间：<span id="current_time"></span></h1>
+<h1>状态：<span id="status"></span></h1>
+</body>
+<script type="text/javascript">
+    const socket = io('http://127.0.0.1:8888', {
+        query: {
+            'token': '123'
+        },
+        extraHeaders: {
+            "token": "666"
+        }
+    });
+    socket.on('connect', () => {
+        $("#status").html("连接成功")
+    })
+    socket.on('server_event', data => {
+        $("#data").html(data);
+        $("#current_time").html(new Date());
+    });
+    socket.on('disconnect', () => {
+        $("#status").html("已下线")
+    })
+</script>
+</html>

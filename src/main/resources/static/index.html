@@ -48,8 +48,8 @@
         $("#status").html("连接成功")
     })
     socket.on('server_event', data => {
-        $("#data").html(data);
-        $("#current_time").html(new Date());
+        $("#data").html(data.msg);
+        $("#current_time").html(data.date);
     });
     socket.on('disconnect', () => {
         $("#status").html("已下线")

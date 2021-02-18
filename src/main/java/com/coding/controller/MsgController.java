@@ -29,7 +29,7 @@ public class MsgController {
     public String send(String msg) {
         Map<String,Object> map=new HashMap<>();
         map.put("msg",msg);
-        map.put("data", LocalDateTime.now().toString());
+        map.put("date", LocalDateTime.now().toString());
         int size = msgSendService.sendMsg(map);
         return "发送成功" + size;
     }

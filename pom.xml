@@ -96,12 +96,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-<!--                    <includes>-->
-<!--                        <include>-->
-<!--                            <groupId>nothing</groupId>-->
-<!--                            <artifactId>nothing</artifactId>-->
-<!--                        </include>-->
-<!--                    </includes>-->
                     <mainClass>com.coding.PushApp</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
@@ -110,37 +104,6 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <configuration>
-                    <repository>registry.cn-beijing.aliyuncs.com/guanweiming/cloud-${project.artifactId}</repository>
-                    <tag>${project.version}</tag>
-                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <!--指定的依赖路径-->
-                            <outputDirectory>
-                                ${project.build.directory}/lib
-                            </outputDirectory>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

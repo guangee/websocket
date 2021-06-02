@@ -96,12 +96,12 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                    <includes>
-                        <include>
-                            <groupId>nothing</groupId>
-                            <artifactId>nothing</artifactId>
-                        </include>
-                    </includes>
+<!--                    <includes>-->
+<!--                        <include>-->
+<!--                            <groupId>nothing</groupId>-->
+<!--                            <artifactId>nothing</artifactId>-->
+<!--                        </include>-->
+<!--                    </includes>-->
                     <mainClass>com.coding.PushApp</mainClass>
                     <layout>ZIP</layout>
                 </configuration>

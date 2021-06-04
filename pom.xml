@@ -60,6 +60,11 @@
             <artifactId>netty-socketio</artifactId>
             <version>1.7.18</version>
         </dependency>
+        <!--原生websocket-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
     </dependencies>
 
 

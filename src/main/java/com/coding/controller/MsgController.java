@@ -1,5 +1,6 @@
 package com.coding.controller;
 
+import com.coding.handler.WebSocketServer;
 import com.coding.service.MsgSendService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,6 +23,7 @@ import java.util.Map;
 public class MsgController {
 
     private final MsgSendService msgSendService;
+    private final WebSocketServer webSocketServer;
 
 
     @ApiOperation("发送消息")
@@ -31,6 +33,7 @@ public class MsgController {
         map.put("msg",msg);
         map.put("date", LocalDateTime.now().toString());
         int size = msgSendService.sendMsg(map);
+        webSocketServer.sendToAll(map);
         return "发送成功" + size;
     }
 

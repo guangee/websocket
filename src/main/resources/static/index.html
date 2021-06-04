@@ -54,5 +54,17 @@
     socket.on('disconnect', () => {
         $("#status").html("已下线")
     })
+
+    var ws = new WebSocket("ws://localhost:8080/ws/666");
+    ws.onopen = function () {
+        console.log("ws 连接成功")
+    }
+    ws.onclose = function () {
+        console.log("ws 关闭成功")
+    }
+    ws.onmessage = function (evt) {
+        console.log("ws 接收到数据" + evt.data)
+    }
+
 </script>
 </html>
